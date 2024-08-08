@@ -1,4 +1,12 @@
 function mergeSortedArrays(arr1, arr2) {
+  if (arr1.length === 0) {
+    return arr2;
+  }
+
+  if (arr2.length === 0) {
+    return arr1;
+  }
+
   let index1 = 0;
   let index2 = 0;
   let result = [];
