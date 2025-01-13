@@ -11,17 +11,35 @@ class HashTable {
     return hash;
   }
 
+  //O(1)
   set(key, value) {
     const index = this._hash(key);
-    this.data[index] = [key, value];
+    if (!this.data[index]) {
+      this.data[index] = [];
+    }
+    this.data[index].push([key, value]);
+    return this.data;
   }
 
+  //O(1) if no collisions
+  //O(n) with collosions
   get(key) {
     const index = this._hash(key);
-    return this.data[index];
+    const currentBucket = this.data[index];
+
+    if (currentBucket) {
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] == key) {
+          return currentBucket[i][1];
+        }
+      }
+    }
+
+    return undefined;
   }
 }
 
 const myHashTable = new HashTable(50);
-myHashTable.set("grapes", 10000);
+console.log(myHashTable.set("grapes", 10000));
+console.log(myHashTable.set("apples", 54));
 console.log(myHashTable.get("grapes"));
