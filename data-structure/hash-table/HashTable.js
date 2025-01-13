@@ -10,8 +10,18 @@ class HashTable {
     }
     return hash;
   }
+
+  set(key, value) {
+    const index = this._hash(key);
+    this.data[index] = [key, value];
+  }
+
+  get(key) {
+    const index = this._hash(key);
+    return this.data[index];
+  }
 }
 
 const myHashTable = new HashTable(50);
 myHashTable.set("grapes", 10000);
-myHashTable.get("grapes");
+console.log(myHashTable.get("grapes"));
