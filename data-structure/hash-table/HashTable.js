@@ -3,6 +3,8 @@ class HashTable {
     this.data = new Array(size);
   }
 
+  //O(1)
+  // It looks like O(n) but normally hash algorithm it is really fast so O(1)
   _hash(key) {
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
@@ -37,9 +39,24 @@ class HashTable {
 
     return undefined;
   }
+
+  // no guaruntee the order
+  keys() {
+    const keys = [];
+
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keys.push(this.data[i][0][0]);
+      }
+    }
+
+    return keys;
+  }
 }
 
 const myHashTable = new HashTable(50);
-console.log(myHashTable.set("grapes", 10000));
-console.log(myHashTable.set("apples", 54));
+myHashTable.set("grapes", 10000);
+myHashTable.set("apples", 54);
+myHashTable.set("oranges", 2);
 console.log(myHashTable.get("grapes"));
+console.log(myHashTable.keys());
