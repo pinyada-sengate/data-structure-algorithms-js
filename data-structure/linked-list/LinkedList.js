@@ -25,10 +25,23 @@ class LinkedList {
     this.head = node;
     this.length++;
   }
+
+  printList() {
+    const arr = [];
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      arr.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    console.log(arr);
+  }
+
+  insert(index, value) {}
 }
 
 const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
-console.log(myLinkedList);
+myLinkedList.insert(2, 99);
+myLinkedList.printList();
