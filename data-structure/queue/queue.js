@@ -33,6 +33,10 @@ class Queue {
 
   //remove from the first of the queue
   dequeue() {
+    if (!this.first) {
+      return null;
+    }
+
     let temp = this.first;
     if (this.length === 1) {
       this.first = null;
