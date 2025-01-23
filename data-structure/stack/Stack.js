@@ -16,10 +16,16 @@ class Stack {
   push(value) {
     const node = new Node(value);
 
-    if (this.top) {
-      this.top.next = node;
+    if (this.length === 0) {
+      this.top = node;
+      this.bottom = node;
+    } else {
+      const temp = this.top;
+      this.top = node;
+      this.top.next = temp;
     }
-    this.top = node;
+
+    this.length++;
   }
 
   // view the top most item
