@@ -6,17 +6,14 @@ class Stack {
 
   push(value) {
     this.data.push(value);
-    this.length++;
   }
 
   peek() {
-    console.log(this.data[this.length - 1]);
+    console.log(this.data[this.data.length - 1]);
   }
 
   pop() {
-    const temp = this.data.pop();
-    this.length--;
-    return temp;
+    return this.data.pop();
   }
 }
 
