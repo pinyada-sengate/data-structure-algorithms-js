@@ -48,8 +48,6 @@ class Stack {
     this.length--;
     return temp;
   }
-
-  isEmpty() {}
 }
 
 const myStack = new Stack();
