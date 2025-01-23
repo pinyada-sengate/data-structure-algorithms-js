@@ -34,7 +34,20 @@ class Stack {
   }
 
   // remove the last item
-  pop() {}
+  pop() {
+    if (!this.top) {
+      return null;
+    }
+
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+
+    const temp = this.top;
+    this.top = this.top.next;
+    this.length--;
+    return temp;
+  }
 
   isEmpty() {}
 }
@@ -42,4 +55,6 @@ class Stack {
 const myStack = new Stack();
 myStack.push("google.com");
 myStack.push("udemy.com");
+myStack.peek();
+console.log(myStack.pop());
 myStack.peek();
